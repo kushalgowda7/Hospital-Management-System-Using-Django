@@ -1,0 +1,36 @@
+{% extends 'hospital/doctorDashBoard.html' %} 
+{% block doctorDashBoard %}
+
+<h2 class="text-center p-3" style="background-color: #007C9D; color: #FFFFFF; border-radius: 5px;">Appointment</h2>
+<table class="table table-striped table-hover" style="background-color: #EBFBFF;">
+    <tr style="color: #FFFFFF; background-color: #007C9D;"> 
+        <th class="text-white">Patient Image</th>
+        <th class="text-white">Patient Name</th>
+        <th class="text-white">Mobile No</th>
+        <th class="text-white">Address</th>
+        <th class="text-white">Description</th>
+        <th class="text-white">Date</th>
+        <th class="text-white">Delete</th>
+    </tr>
+    {% for app, p in appointments %}
+        <tr class="white-block">
+            <td style="width: 100px;">
+                <img src="{{ p.profile_pic.url }}" alt="{{ p.user.username }} Profile" style="border-radius: 50%; width: 60px; height: 60px; object-fit: cover;">
+            </td>
+            <td>{{ app.patientName }}</td>
+            <td>{{ p.mobile }}</td>
+            <td>{{ p.address }}</td>
+            <td>{{ app.description }}</td>
+            <td>{{ app.appointmentDate }}</td>
+            <td>
+                <a href="{% url 'doctorDashAppointMentRemove' app.id %}" class="text-decoration-none">
+                    <i class="fa-solid fa-trash" style="color: #005C73;"></i>
+                </a>
+            </td>
+        </tr>
+    {% empty %}
+        <tr><td colspan="7" class="text-center">No Appointment</td></tr>
+    {% endfor %}
+</table>
+
+{% endblock doctorDashBoard %}

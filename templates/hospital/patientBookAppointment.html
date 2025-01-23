@@ -1,0 +1,24 @@
+{% extends 'hospital/patientDashboard.html' %} 
+{% block patientDashBoard %}
+
+<div class="white-block" style="background-color: #EBFBFF; padding: 20px;">
+    <h3 class="p-3 bg-primary text-white text-center" style="border-radius: 5px 5px 0 0; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">Book Appointment Details</h3>
+    
+    <form action="" method="post">
+        {% csrf_token %}
+        <div id="appfrm" class="p-4 d-flex flex-wrap gap-3">
+            {% for frm in form %}
+            <div class="form-group" style="width: 100%; max-width: 30rem;">
+                <label for="{{ frm.id_for_label }}" class="form-label">{{ frm.label }}</label>
+                {{ frm }}
+                {% if frm.errors %}
+                    <span class="text-danger text-center">{{ frm.errors }}</span>
+                {% endif %}
+            </div>
+            {% endfor %}
+            <button class="btn btn-success w-100" style="max-width: 30rem; background-color: #007C9D; border-color: #007C9D; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">Book Appointment</button>
+        </div>
+    </form>
+</div>
+
+{% endblock patientDashBoard %}

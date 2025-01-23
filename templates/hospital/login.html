@@ -1,0 +1,38 @@
+{% extends 'hospital/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="d-flex justify-content-around flex-wrap text-center mt-5" style="background-color: #EBFBFF;">
+    <div class="card" style="width: 18rem; border: none; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <img src="{% static 'hospital/images/admin.png' %}" class="card-img-top" alt="Admin Image" style="object-fit: cover; height: 300px;">
+        <div class="card-body">
+            <h2 class="card-title text-primary">Admin</h2>
+            <div class="d-grid gap-2">
+                <a href="{% url 'adminsignup' %}" class="btn btn-primary custom-btn-size">Register</a>
+                <a href="{% url 'adminlogin' %}" class="btn btn-primary custom-btn-size">Login</a>
+            </div>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem; border: none; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <img src="{% static 'hospital/images/doctor.png' %}" class="card-img-top" alt="Doctor Image" style="object-fit: cover; height: 300px;">
+        <div class="card-body">
+            <h2 class="card-title text-primary">Doctor</h2>
+            <div class="d-grid gap-2">
+                <a href="{% url 'doctorsignup' %}" class="btn btn-primary custom-btn-size">Register</a>
+                <a href="{% url 'doctorlogin' %}" class="btn btn-primary custom-btn-size">Login</a>
+            </div>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem; border: none; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <img src="{% static 'hospital/images/patient.jpg' %}" class="card-img-top" alt="Patient Image" style="object-fit: cover; height: 300px;">
+        <div class="card-body">
+            <h3 class="card-title text-primary">Patient</h3>
+            <div class="d-grid gap-2">
+                <a href="{% url 'patientsignup' %}" class="btn btn-primary custom-btn-size">Register</a>
+                <a href="{% url 'patientlogin' %}" class="btn btn-primary custom-btn-size">Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+<p>‎ </p>
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends 'hospital/adminDashboard.html' %}
+{% block adminDashBoard %}
+
+{% if messages %}
+    {% for msg in messages %}
+    <div class="alert alert-{{msg.tags}} alert-dismissible fade show" role="alert" style="border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        {{ msg }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+{% endif %}
+
+<div class="admin-card white-block" style="background-color: #EBFBFF; padding: 20px;">
+    <div class="row">
+        <div class="col-md-4 cardsApp text-center mb-3" style="background-color: #FFFFFF; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 20px;">
+            <a href="{% url 'adminViewAppointment' %}" class="text-decoration-none text-dark">
+                <h6 class="mb-2">View Appointment</h6>
+                <i class="fa-solid fa-calendar-days" style="color: #007C9D; font-size: 2em;"></i>
+            </a>
+        </div>
+        <div class="col-md-4 cardsApp text-center mb-3" style="background-color: #FFFFFF; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 20px;">
+            <a href="{% url 'adminAddAppointment' %}" class="text-decoration-none text-dark">
+                <h6 class="mb-2">Book Appointment</h6>
+                <i class="fa-solid fa-book-medical" style="color: #007C9D; font-size: 2em;"></i>
+            </a>
+        </div>
+        <div class="col-md-4 cardsApp text-center mb-3" style="background-color: #FFFFFF; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 20px;">
+            <a href="{% url 'adminApprovelAppointment' %}" class="text-decoration-none text-dark">
+                <h6 class="mb-2">Approve Appointment</h6>
+                <i class="fa-regular fa-circle-check" style="color: #007C9D; font-size: 2em;"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock adminDashBoard %}

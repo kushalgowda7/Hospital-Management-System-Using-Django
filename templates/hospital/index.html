@@ -1,0 +1,206 @@
+{% extends 'hospital/base.html' %}
+{% load static %}
+{% block hero %}
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <!-- Indicators -->
+    <div class="carousel-indicators" style="bottom: 10px;">
+        <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+
+    <!-- Carousel Images -->
+    <div class="carousel-inner" style="border-radius: 20px; overflow: hidden;">
+        <div class="carousel-item active">
+            <img src="{% static 'hospital/images/bg.jpg' %}" class="d-block w-100" alt="Hospital Background" style="max-height: 600px; object-fit: cover;">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'hospital/images/bg.jpg' %}" class="d-block w-100" alt="Hospital Background" style="max-height: 600px; object-fit: cover;">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'hospital/images/bg.jpg' %}" class="d-block w-100" alt="Hospital Background" style="max-height: 600px; object-fit: cover;">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'hospital/images/bg.jpg' %}" class="d-block w-100" alt="Hospital Background" style="max-height: 600px; object-fit: cover;">
+        </div>
+    </div>
+</div>
+
+
+{% endblock hero %}
+
+{% block content %}
+<section class="services py-5" id="services" style="background-color: #EBFBFF;">
+    <div class="container text-center">
+        <h3 class="mb-4">Our Key Services</h3>
+    </div>
+    <div class="container serviceFeature d-flex justify-content-center flex-wrap">
+        <div class="text-center mx-2 my-2" style="width: 180px;">
+            <i class="fa-solid fa-heart-pulse fa-3x" style="color: #007C9D;"></i>
+            <h6 class="mt-2 mb-1">Cardiology</h6>
+            <p style="font-size: 14px; line-height: 1.4; margin: 0;">Expert care for heart-related conditions.</p>
+        </div>
+        <div class="text-center mx-2 my-2" style="width: 180px;">
+            <i class="fa-solid fa-ribbon fa-3x" style="color: #007C9D;"></i>
+            <h6 class="mt-2 mb-1">Orthopedic</h6>
+            <p style="font-size: 14px; line-height: 1.4; margin: 0;">Advanced treatment for bone and joint issues.</p>
+        </div>
+        <div class="text-center mx-2 my-2" style="width: 180px;">
+            <i class="fa-solid fa-brain fa-3x" style="color: #007C9D;"></i>
+            <h6 class="mt-2 mb-1">Neurologist</h6>
+            <p style="font-size: 14px; line-height: 1.4; margin: 0;">Comprehensive care for brain health.</p>
+        </div>
+        <div class="text-center mx-2 my-2" style="width: 180px;">
+            <i class="fa-solid fa-tablets fa-3x" style="color: #007C9D;"></i>
+            <h6 class="mt-2 mb-1">Pharma Pipeline</h6>
+            <p style="font-size: 14px; line-height: 1.4; margin: 0;">Innovative pharmaceutical development.</p>
+        </div>
+        <div class="text-center mx-2 my-2" style="width: 180px;">
+            <i class="fa-solid fa-prescription-bottle-medical fa-3x" style="color: #007C9D;"></i>
+            <h6 class="mt-2 mb-1">Pharma Team</h6>
+            <p style="font-size: 14px; line-height: 1.4; margin: 0;">Dedicated team for efficient healthcare.</p>
+        </div>
+        <div class="text-center mx-2 my-2" style="width: 180px;">
+            <i class="fa-solid fa-thumbs-up fa-3x" style="color: #007C9D;"></i>
+            <h6 class="mt-2 mb-1">High Quality Treatment</h6>
+            <p style="font-size: 14px; line-height: 1.4; margin: 0;">Reliable and superior medical services.</p>
+        </div>
+    </div>
+</section>
+
+
+<section class="about-hospital py-5" style="background-color: #FFFFFF; border-radius: 20px;" id="about-hospital">
+    <div class="container text-center" style="max-width: 800px; margin: 0 auto;">
+        <h3 class="mb-4" style="font-weight: bold;">About Our Hospital</h3>
+        <img src="{% static 'hospital/images/about-us.jpg' %}" class="img-fluid mb-4" alt="About Us" 
+            style="max-height: 990px; object-fit: cover; border-radius: 15px; width: 100%;">
+        <p style="text-align: justify; line-height: 1.6; font-size: 16px;">
+            A hospital is a healthcare institution providing patient treatment with specialized health science and auxiliary 
+            healthcare staff and medical equipment.[1] The best-known type of hospital is the general hospital, which typically has an 
+            emergency department to treat urgent health problems ranging from fire and accident victims to a sudden illness. A district 
+            hospital typically is the major health care facility in its region, with many beds for intensive care and additional beds for 
+            patients who need long-term care. Specialized hospitals include trauma centers, rehabilitation hospitals, children's hospitals, 
+            seniors' (geriatric) hospitals, and hospitals for dealing with specific medical needs such as psychiatric treatment 
+            (see psychiatric hospital) and certain disease categories. Specialized hospitals can help reduce health care costs compared to 
+            general hospitals.[2] Hospitals are classified as general, specialty, or government depending on the sources of income received.
+        </p>
+    </div>
+</section>
+
+<section class="exportDoctor py-5" style="background-color: #EBFBFF;">
+    <h2 class="text-center mb-4">Our Expert Doctors</h2>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-1 g-3 justify-content-center">
+            <div class="d-flex flex-wrap justify-content-center" style="gap: 16px;">
+                {% for doc in doctors %}
+                {% if doc.user.first_name != "" %}
+                <div class="card" 
+                     style="border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 240px;">
+                    <img src="{{ doc.profile_pic.url }}" 
+                         class="card-img-top img-fluid expert-doc-image" 
+                         alt="{{ doc.user.first_name }} Profile" 
+                         style="border-top-left-radius: 10px; border-top-right-radius: 10px; object-fit: cover; height: 240px;">
+                    <div class="card-body text-center" style="padding: 12px;">
+                        <h6 class="card-title mb-1" style="font-weight: bold;">{{ doc.user.first_name }}</h6>
+                        <p class="text-muted" style="font-size: 14px; margin: 0;">{{ doc.specialization }}</p>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="contact py-5" id="contact" style="background-color: #EBFBFF;">
+    <div class="container">
+        <!-- Form Wrapper with Rounded Corners -->
+        <div class="rounded-4 bg-white p-4" style="border-radius: 20px;">
+            <h2 class="text-center mb-4">Contact Us</h2>
+            <form action="" method="post" class="mb-4" id="contactForm">
+                {% csrf_token %}
+                <div class="mb-4">  <!-- Increased gap between blocks -->
+                    {% for frm in frm_unbound %}
+                    <div class="mb-3">  <!-- Each label-textbox pair in its own block -->
+                        <label for="{{ frm.id_for_label }}" class="form-label">{{ frm.label }}</label>
+                        {{ frm }}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-lg w-100">
+                        Send <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successModalLabel">Success</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <i class="fa-solid fa-check-circle fa-3x text-success"></i>
+                <p>Successfully received your response</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+<script>
+   // Show Api Data
+    function ShowData(a) {
+        let img = document.createElement('img');
+        img.src = a.images;
+        img.className = 'img-fluid mb-2';
+        let imgdiv = document.createElement('div');
+        imgdiv.className = 'col-md-4';
+        imgdiv.append(img);
+        document.getElementById('gallaryImg').appendChild(imgdiv);
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Here you would typically handle form submission via AJAX, but for this demo:
+        var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+        successModal.show();
+        
+        // Reset form after showing modal
+        this.reset();
+    });
+</script>
+<style>
+    .custom-btn-size {
+        width: 150px;
+        font-size: 1.2em;
+    }
+    .expert-doc-image {
+        aspect-ratio: 1 / 1; /* Correct aspect ratio */
+        width: 100%; /* Full width within the card */
+        height: auto;
+        object-fit: cover;
+    }
+    .card {
+        flex: 0 0 auto; /* Prevents cards from growing */
+        margin: 5px; /* Space between cards */
+    }
+    textarea {
+    width: 100%; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+}
+
+</style>
+{% endblock script %}

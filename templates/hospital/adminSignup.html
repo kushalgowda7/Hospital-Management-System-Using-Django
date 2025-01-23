@@ -1,0 +1,42 @@
+{% extends 'hospital/base.html' %}
+{% load static %}
+{% block style %}
+<style>
+    .form-floating label {
+        color: #007C9D;
+    }
+    .form-floating input:focus ~ label,
+    .form-floating input:not(:placeholder-shown) ~ label {
+        color: #005C73 !important;
+    }
+</style>
+{% endblock style %}
+{% block content %}
+    <div class="container p-0 border border-info white-block" style="background-color: #EBFBFF;">
+        <div class="p-2 text-center" style="background-color: #007C9D; color: #FFFFFF;">
+            <h1>Admin Registration Form</h1>
+        </div>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="p-4 d-flex flex-wrap gap-3 m-4">
+                {% for frm in form %}
+                <div class="form-floating" style="width: 30rem;">
+                    {{ frm }}
+                    <label for="{{ frm.id_for_label }}">{{ frm.label }}</label>
+                    {% if frm.errors %}
+                        <div class="text-danger">
+                            {{ frm.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                
+                <button class="btn btn-primary w-25 me-4" style="background-color: #007C9D; border-color: #007C9D; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                    SignUp
+                </button>
+                <p>Already have an Account? <a href="{% url 'doctorlogin' %}" style="color: #007C9D;">Login here</a></p>
+            </div>
+        </form>
+    </div>
+    <p>‎ </p>
+{% endblock content %}

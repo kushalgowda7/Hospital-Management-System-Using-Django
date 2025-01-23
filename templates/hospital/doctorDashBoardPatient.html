@@ -1,0 +1,21 @@
+{% extends 'hospital/doctorDashBoard.html' %} 
+{% block doctorDashBoard %}
+
+<div class="admin-card white-block" style="background-color: #EBFBFF; padding: 20px;">
+    <div class="row">
+        <div class="col-md-6 cardsApp text-center mb-3" style="background-color: #FFFFFF; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 20px;">
+            <a href="{% url 'doctorDashPatientRecord' %}" class="text-decoration-none text-dark">
+                <h6 class="mb-2">Patient Record</h6>
+                <i class="fa-solid fa-user-injured" style="color: #007C9D; font-size: 2em;"></i>
+            </a>
+        </div>
+        <div class="col-md-6 cardsApp text-center mb-3" style="background-color: #FFFFFF; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 20px;">
+            <a href="{% url 'adminPatientAdd' %}" class="text-decoration-none text-dark">
+                <h6 class="mb-2">Your Discharged Patient</h6>
+                <i class="fa-solid fa-eject" style="color: #007C9D; font-size: 2em;"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock doctorDashBoard %}
